@@ -3,23 +3,25 @@ id: stress-testing
 title: Network stress testing
 ---
 
-## Prerequisites
+# Network stress testing
+
+### Prerequisites
 
 This guide assumes that:
 
-- You have a working Polygon Edge network up and running
-- Both your JSON-RPC and GRPC endpoints are reachable
+* You have a working Polygon Edge network up and running
+* Both your JSON-RPC and GRPC endpoints are reachable
 
-## Overview
+### Overview
 
-The Polygon Edge Loadbot is a helper utility that is meant to stress test a Polygon Edge network.
+The Zchains Loadbot is a helper utility that is meant to stress test a Zchains network.
 
 Currently, it supports 2 modes:
 
-- `transfer` - mode that does stress testing using fund-transfer transactions. **[Default]**.
-- `deploy` - mode that deploys specified smart contracts with each transaction.
+* `transfer` - mode that does stress testing using fund-transfer transactions. **\[Default]**.
+* `deploy` - mode that deploys specified smart contracts with each transaction.
 
-### Transfer Mode
+#### Transfer Mode
 
 The transfer mode assumes that there is a sender account that has initial funds to conduct the loadbot run.
 
@@ -30,27 +32,27 @@ The sender's account address and private key need to be set in the environment v
 export LOADBOT_0x9A2E59d06899a383ef47C1Ec265317986D026055=154c4bc0cca942d8a0b49ece04d95c872d8f53d34b8f2ac76253a3700e4f1151
 ```
 
-### Deploy Mode
+#### Deploy Mode
 
-The deploy mode conducts contract deployment with each new transaction in the loadbot run.
-The contract being deployed can be specified using [specific flags](/docs/get-started/cli-commands#loadbot-flags), or if the contract path is omitted, a default 
-`Greeter.sol` [contract](https://github.com/nomiclabs/hardhat/blob/master/packages/hardhat-core/sample-projects/basic/contracts/Greeter.sol) is used instead.
+The deploy mode conducts contract deployment with each new transaction in the loadbot run. The contract being deployed can be specified using [specific flags](../get-started/cli-commands/#loadbot-flags), or if the contract path is omitted, a default `Greeter.sol` [contract](https://github.com/nomiclabs/hardhat/blob/master/packages/hardhat-core/sample-projects/basic/contracts/Greeter.sol) is used instead.
 
-### Terminology
+#### Terminology
 
 This section covers some basic terminology regarding the loadbot configuration.
 
-- **count** - The number of transactions to be submitted in the specified mode
-- **tps** - The number of transactions that should be submitted to the node per second
+* **count** - The number of transactions to be submitted in the specified mode
+* **tps** - The number of transactions that should be submitted to the node per second
 
-## Start the loadbot
+### Start the loadbot
 
 As an example, here is a valid command you can use to run the loadbot using two premined accounts:
+
 ```bash
-polygon-edge loadbot  --jsonrpc http://127.0.0.1:10002 --grpc-address 127.0.0.1:10000 --sender 0x9A2E59d06899a383ef47C1Ec265317986D026055 --count 2000 --value 0x100 --tps 100
+Zchains loadbot  --jsonrpc http://127.0.0.1:10002 --grpc-address 127.0.0.1:10000 --sender 0x9A2E59d06899a383ef47C1Ec265317986D026055 --count 2000 --value 0x100 --tps 100
 ```
 
 You should get a result similar to this on your terminal :
+
 ```bash
 =====[LOADBOT RUN]=====
 
