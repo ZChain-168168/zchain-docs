@@ -3,7 +3,7 @@ id: setup-erc721-transfer
 title: ERC721 NFT Transfer
 ---
 
-# ERC721 NFT Transfer
+# ZRC721 NFT Transfer
 
 This section guides you through setting up an ZRC721 bridge and sending NFTs between blockchain networks.
 
@@ -44,15 +44,15 @@ $ cb-sol-cli bridge set-burn \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
-  --handler "[ZRC721_HANDLER_CONTRACT_ADDRESS]" \
-  --tokenContract "[ZRC721_CONTRACT_ADDRESS]"
+  --handler "[ERC721_HANDLER_CONTRACT_ADDRESS]" \
+  --tokenContract "[ERC721_CONTRACT_ADDRESS]"
 
 # Grant minter role to ERC721 Handler contract (Only if you want to mint)
 $ cb-sol-cli zrc721 add-minter \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
-  --erc721Address "[ZRC721_CONTRACT_ADDRESS]" \
-  --minter "[ZRC721_HANDLER_CONTRACT_ADDRESS]"
+  --erc721Address "[ERC721_CONTRACT_ADDRESS]" \
+  --minter "[ERC721_HANDLER_CONTRACT_ADDRESS]"
 ```
 
 ### Step 2: Transfer NFT
@@ -65,7 +65,7 @@ $ cb-sol-cli erc721 mint \
   --url https://rpc.zchains.com \
   --privateKey [MINTER_ROLE_ACCOUNT] \
   --gasPrice [GAS_PRICE] \
-  --erc721Address "[ZRC721_CONTRACT_ADDRESS]" \
+  --erc721Address "[ERC721_CONTRACT_ADDRESS]" \
   --id 0x50
 ```
 
@@ -75,7 +75,7 @@ To check the NFT owner, you can use `cb-sol-cli erc721 owner`
 # Check the current owner of NFT
 $ cb-sol-cli erc721 owner \
   --url https://rpc.zchains.com \
-  --zrc721Address "[ZRC721_CONTRACT_ADDRESS]" \
+  --erc721Address "[ERC721_CONTRACT_ADDRESS]" \
   --id 0x50
 ```
 
@@ -87,8 +87,8 @@ $ cb-sol-cli erc721 approve \
   --url https://rpc.zchains.com \
   --privateKey [PRIVATE_KEY] \
   --gasPrice [GAS_PRICE] \
-  --zrc721Address "[ZRC721_CONTRACT_ADDRESS]" \
-  --recipient "[ZRC721_HANDLER_CONTRACT_ADDRESS]" \
+  --zrc721Address "[ERC721_CONTRACT_ADDRESS]" \
+  --recipient "[ERC721_HANDLER_CONTRACT_ADDRESS]" \
   --id 0x50
 ```
 
@@ -111,7 +111,7 @@ $ cb-sol-cli erc721 deposit \
 The relayer will get the event and vote for the proposal. It executes a transaction to send NFTs to the recipient account in the Polygon Edge chain after the required number of votes are submitted.
 
 ```bash
-INFO[11-19|09:07:50] Handling nonfungible deposit event       chain=mumbai
+INFO[11-19|09:07:50] Handling nonfungible deposit event       chain=Zchains
 INFO[11-19|09:07:50] Attempting to resolve message            chain=Zchains type=NonFungibleTransfer src=99 dst=100 nonce=2 rId=000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501
 INFO[11-19|09:07:50] Creating erc721 proposal                 chain=Zchains src=99 nonce=2
 INFO[11-19|09:07:50] Watching for finalization event          chain=Zchains src=99 nonce=2

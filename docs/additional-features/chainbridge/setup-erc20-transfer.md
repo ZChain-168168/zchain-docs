@@ -115,7 +115,7 @@ $ cb-sol-cli erc20 deposit \
 After the deposit transaction was successful, the relayer will get the event and vote for the proposal. It executes a transaction to send tokens to the recipient account in the Polygon Edge chain after the required number of votes are submitted.
 
 ```bash
-INFO[11-19|08:15:58] Handling fungible deposit event          chain=mumbai dest=100 nonce=1
+INFO[11-19|08:15:58] Handling fungible deposit event          chain=Zchains dest=100 nonce=1
 INFO[11-19|08:15:59] Attempting to resolve message            chain=Zchains type=FungibleTransfer src=99 dst=100 nonce=1 rId=000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00
 INFO[11-19|08:15:59] Creating erc20 proposal                  chain=Zchains src=99 nonce=1
 INFO[11-19|08:15:59] Watching for finalization event          chain=Zchains src=99 nonce=1

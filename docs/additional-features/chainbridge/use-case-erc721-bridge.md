@@ -29,7 +29,7 @@ Explaining with a simple ZRC721 contract instead of the contract developed by Ch
 ```sol
 pragma solidity ^0.8.14;
 
-import "@openzeppelin/contracts/token/ZRC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
