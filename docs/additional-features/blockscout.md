@@ -109,11 +109,11 @@ We need to set the environment variables, before we begin with Blockscout compil
 
 ```bash
 # example:  ETHEREUM_JSONRPC_HTTP_URL=https://rpc.poa.psdk.io:8545
-export  ETHEREUM_JSONRPC_HTTP_URL=<your polygon-edge json-rpc endpoint>
+export  ETHEREUM_JSONRPC_HTTP_URL=<your Zchains json-rpc endpoint>
 # example: ETHEREUM_JSONRPC_TRACE_URL=https://rpc.poa.psdk.io:8545
-export ETHEREUM_JSONRPC_TRACE_URL=<your polygon-edge json-rpc endpoint>
+export ETHEREUM_JSONRPC_TRACE_URL=<your Zchains json-rpc endpoint>
 # example: ETHEREUM_JSONRPC_WS_URL=wss://rpc.poa.psdk.io:8545/ws
-export ETHEREUM_JSONRPC_WS_URL=<your polygon-edge websocket endpoint>
+export ETHEREUM_JSONRPC_WS_URL=<your Zchains websocket endpoint>
 # used for automaticaly restarting the service if it crashes
 export HEART_COMMAND="systemctl start explorer.service"
 # postgresql connection example:  DATABASE_URL=postgresql://blockscout:Passw0Rd@db.instance.local:5432/blockscout

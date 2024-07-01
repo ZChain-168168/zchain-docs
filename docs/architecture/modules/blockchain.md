@@ -3,27 +3,34 @@ id: blockchain
 title: Blockchain
 ---
 
-## Overview
+# Blockchain
 
-One of the main modules of the Polygon Edge are **Blockchain** and **State**. <br />
+### Overview
+
+One of the main modules of the Zchains are **Blockchain** and **State**.\
+
 
 **Blockchain** is the powerhouse that deals with block reorganizations. This means that it deals with all the logic that happens when a new block is included in the blockchain.
 
-**State** represents the *state transition* object. It deals with how the state changes when a new block is included. <br /> Among other things, **State** handles:
+**State** represents the _state transition_ object. It deals with how the state changes when a new block is included.\
+Among other things, **State** handles:
+
 * Executing transactions
 * Executing the EVM
 * Changing the Merkle tries
 * Much more, which is covered in the corresponding **State** section 🙂
 
-The key takeaway is that these 2 parts are very connected, and they work closely together in order for the client to function. <br /> For example, when the **Blockchain** layer receives a new block (and no reorganization occurred), it calls the **State** to perform a state transition.
+The key takeaway is that these 2 parts are very connected, and they work closely together in order for the client to function.\
+For example, when the **Blockchain** layer receives a new block (and no reorganization occurred), it calls the **State** to perform a state transition.
 
-**Blockchain** also has to deal with some parts relating to consensus (ex. *is this ethHash correct?*, *is this PoW correct?*). <br /> In one sentence, **it is the main core of logic through which all blocks are included**.
+**Blockchain** also has to deal with some parts relating to consensus (ex. _is this ethHash correct?_, _is this PoW correct?_).\
+In one sentence, **it is the main core of logic through which all blocks are included**.
 
-## *WriteBlocks*
+### _WriteBlocks_
 
-One of the most important parts relating to the **Blockchain** layer is the *WriteBlocks* method:
+One of the most important parts relating to the **Blockchain** layer is the _WriteBlocks_ method:
 
-````go title="blockchain/blockchain.go"
+```go
 // WriteBlocks writes a batch of blocks
 func (b *Blockchain) WriteBlocks(blocks []*types.Block) error {
 	if len(blocks) == 0 {
@@ -92,22 +99,23 @@ func (b *Blockchain) WriteBlocks(blocks []*types.Block) error {
 
 	return nil
 }
-````
-The *WriteBlocks* method is the entry point to write blocks into the blockchain. As a parameter, it takes in a range of blocks.<br />
+```
+
+The _WriteBlocks_ method is the entry point to write blocks into the blockchain. As a parameter, it takes in a range of blocks.\
 Firstly, the blocks are validated. After that, they are written to the chain.
 
-The actual *state transition* is performed by calling the *processBlock* method within *WriteBlocks*.
+The actual _state transition_ is performed by calling the _processBlock_ method within _WriteBlocks_.
 
 It is worth mentioning that, because it is the entry point for writing blocks to the blockchain, other modules (such as the **Sealer**) utilize this method.
 
-## Blockchain Subscriptions
+### Blockchain Subscriptions
 
-There needs to be a way to monitor blockchain-related changes. <br />
-This is where **Subscriptions** come in. 
+There needs to be a way to monitor blockchain-related changes.\
+This is where **Subscriptions** come in.
 
 Subscriptions are a way to tap into blockchain event streams and instantly receive meaningful data.
 
-````go title="blockchain/subscription.go"
+```go
 type Subscription interface {
     // Returns a Blockchain Event channel
 	GetEventCh() chan *Event
@@ -118,11 +126,11 @@ type Subscription interface {
 	// Closes the subscription
 	Close()
 }
-````
+```
 
 The **Blockchain Events** contain information regarding any changes made to the actual chain. This includes reorganizations, as well as new blocks:
 
-````go title="blockchain/subscription.go"
+```go
 type Event struct {
 	// Old chain removed if there was a reorg
 	OldChain []*types.Header
@@ -140,10 +148,8 @@ type Event struct {
 	// right now it can be either the Sealer or the Syncer. TODO
 	Source string
 }
-````
+```
 
-:::tip Refresher
-Do you remember when we mentioned the ***monitor*** command in the [CLI Commands](/docs/get-started/cli-commands)?
+:::tip Refresher Do you remember when we mentioned the _**monitor**_ command in the [CLI Commands](../../get-started/cli-commands/)?
 
-The Blockchain Events are the original events that happen in Polygon Edge, and they're later mapped to a Protocol Buffers message format for easy transfer.
-:::
+The Blockchain Events are the original events that happen in Zchains, and they're later mapped to a Protocol Buffers message format for easy transfer. :::

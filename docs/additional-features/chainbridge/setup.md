@@ -3,9 +3,11 @@ id: setup
 title: Setup
 ---
 
-## Contracts deployment
+# Setup
 
-In this section, you will deploy the required contracts to the Polygon PoS and Polygon Edge chain with `cb-sol-cli`.
+### Contracts deployment
+
+In this section, you will deploy the required contracts to the Zchains PoS and Zchains chain with `cb-sol-cli`.
 
 ```bash
 # Setup for cb-sol-cli command
@@ -14,7 +16,7 @@ $ cd chainbridge-deploy/cb-sol-cli
 $ make install
 ```
 
-Firstly, we will deploy contracts to the Polygon PoS chain by `cb-sol-cli deploy` command.  `--all` flag makes the command deploy all the contracts, including Bridge, ERC20 Handler, ERC721 Handler, Generic Handler, ERC20, and ERC721 contract. In addition, it'll set the default relayer account address and the threshold
+Firstly, we will deploy contracts to the Polygon PoS chain by `cb-sol-cli deploy` command. `--all` flag makes the command deploy all the contracts, including Bridge, ZRC20 Handler, ZRC721 Handler, Generic Handler, ZRC20, and ZRC721 contract. In addition, it'll set the default relayer account address and the threshold
 
 ```bash
 # Deploy all required contracts into Polygon PoS chain
@@ -26,8 +28,7 @@ $ cb-sol-cli deploy --all --chainId 99 \
   --relayerThreshold 1
 ```
 
-
-Learn about chainID and JSON-RPC URL [here](/docs/additional-features/chainbridge/definitions)
+Learn about chainID and JSON-RPC URL [here](definitions/)
 
 :::caution
 
@@ -47,8 +48,7 @@ $ cb-sol-cli deploy --all --chainId 99 \
 
 :::caution
 
-The Bridge contract takes approximately 0x3f97b8 (4167608) gas to deploy. Please make sure the blocks being generated have enough block gas limit to contain the contract creation transaction. To learn more about changing block gas limit in Polygon Edge, please visit
-the [Local Setup](/docs/get-started/set-up-ibft-locally) 
+The Bridge contract takes approximately 0x3f97b8 (4167608) gas to deploy. Please make sure the blocks being generated have enough block gas limit to contain the contract creation transaction. To learn more about changing block gas limit in Polygon Edge, please visit the [Local Setup](../../get-started/set-up-ibft-locally/)
 
 :::
 
@@ -112,9 +112,9 @@ $ cb-sol-cli deploy --all --chainId 100 \
 
 Save the terminal outputs with the deployed smart contract addresses as we will need them for the next step.
 
-## Relayer setup
+### Relayer setup
 
-In this section, you will start a relayer to exchange data between 2 chains. 
+In this section, you will start a relayer to exchange data between 2 chains.
 
 First, we need to clone and build the ChainBridge repository.
 

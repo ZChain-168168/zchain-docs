@@ -3,21 +3,23 @@ id: consensus
 title: Consensus
 ---
 
-## Overview
+# Consensus
+
+### Overview
 
 The **Consensus** module provides an interface for consensus mechanisms.
 
 Currently, the following consensus engines are available:
+
 * **IBFT PoA**
 * **IBFT PoS**
 
-The Polygon Edge wants to maintain a state of modularity and pluggability. <br />
-This is why the core consensus logic has been abstracted away, so new consensus mechanisms can be built on top, without
-compromising on usability and ease of use.
+The Zchains wants to maintain a state of modularity and pluggability.\
+This is why the core consensus logic has been abstracted away, so new consensus mechanisms can be built on top, without compromising on usability and ease of use.
 
-## Consensus Interface
+### Consensus Interface
 
-````go title="consensus/consensus.go"
+```go
 // Consensus is the interface for consensus
 type Consensus interface {
 	// VerifyHeader verifies the header is correct
@@ -29,18 +31,18 @@ type Consensus interface {
 	// Close closes the connection
 	Close() error
 }
-````
+```
 
-The ***Consensus*** interface is the core of the mentioned abstraction. <br />
-* The **VerifyHeader** method represents a helper function which the consensus layer exposes to the **blockchain** layer
-It is there to handle header verification
-* The **Start** method simply starts the consensus process, and everything associated with it. This includes synchronization, 
-sealing, everything that needs to be done
+The _**Consensus**_ interface is the core of the mentioned abstraction.\
+
+
+* The **VerifyHeader** method represents a helper function which the consensus layer exposes to the **blockchain** layer It is there to handle header verification
+* The **Start** method simply starts the consensus process, and everything associated with it. This includes synchronization, sealing, everything that needs to be done
 * The **Close** method closes the consensus connection
 
-## Consensus Configuration
+### Consensus Configuration
 
-````go title="consensus/consensus.go"
+```go
 // Config is the configuration for the consensus
 type Config struct {
 	// Logger to be used by the backend
@@ -55,36 +57,37 @@ type Config struct {
 	// Path for the consensus protocol to store information
 	Path string
 }
-````
+```
 
-There may be times when you might want to pass in a custom location for the consensus protocol to store data, or perhaps 
-a custom key-value map that you want the consensus mechanism to use. This can be achieved through the ***Config*** struct, 
-which gets read when a new consensus instance is created.
+There may be times when you might want to pass in a custom location for the consensus protocol to store data, or perhaps a custom key-value map that you want the consensus mechanism to use. This can be achieved through the _**Config**_ struct, which gets read when a new consensus instance is created.
 
-## IBFT
+### IBFT
 
-### ExtraData
+#### ExtraData
 
-The blockchain header object, among other fields, has a field called **ExtraData**. <br />
-To review the fields present in the block header, please check out the **[State in Ethereum](/docs/concepts/ethereum-state#blocks)** section.
+The blockchain header object, among other fields, has a field called **ExtraData**.\
+To review the fields present in the block header, please check out the [**State in Ethereum**](../../concepts/ethereum-state/#blocks) section.
 
 IBFT uses this extra field to store operational information regarding the block, answering questions like:
+
 * "Who signed this block?"
 * "Who are the validators for this block?"
 
 These extra fields for IBFT are defined as follows:
-````go title="consensus/ibft/extra.go"
+
+```go
 type IstanbulExtra struct {
 	Validators    []types.Address
 	Seal          []byte
 	CommittedSeal [][]byte
 }
-````
+```
 
-### Signing Data
+#### Signing Data
 
-In order for the node to sign information in IBFT, it leverages the *signHash* method:
-````go title="consensus/ibft/sign.go"
+In order for the node to sign information in IBFT, it leverages the _signHash_ method:
+
+```go
 func signHash(h *types.Header) ([]byte, error) {
 	//hash := istambulHeaderHash(h)
 	//return hash.Bytes(), nil
@@ -120,9 +123,11 @@ func signHash(h *types.Header) ([]byte, error) {
 	buf := keccak.Keccak256Rlp(nil, vv)
 	return buf, nil
 }
-````
-Another notable method is the *VerifyCommittedFields* method, which verifies that the committed seals are from valid validators:
-````go title="consensus/ibft/sign.go
+```
+
+Another notable method is the _VerifyCommittedFields_ method, which verifies that the committed seals are from valid validators:
+
+```go
 func verifyCommitedFields(snap *Snapshot, header *types.Header) error {
 	extra, err := getIbftExtra(header)
 	if err != nil {
@@ -162,20 +167,20 @@ func verifyCommitedFields(snap *Snapshot, header *types.Header) error {
 	}
 	return nil
 }
-````
+```
 
-### Snapshots
+#### Snapshots
 
-Snapshots, as the name implies, are there to provide a *snapshot*, or the *state* of a system at any block height (number).
+Snapshots, as the name implies, are there to provide a _snapshot_, or the _state_ of a system at any block height (number).
 
-Snapshots contain a set of nodes who are validators, as well as voting information (validators can vote for other validators).
-Validators include voting information in the **Miner** header filed, and change the value of the **nonce**:
+Snapshots contain a set of nodes who are validators, as well as voting information (validators can vote for other validators). Validators include voting information in the **Miner** header filed, and change the value of the **nonce**:
+
 * Nonce is **all 1s** if the node wants to remove a validator
 * Nonce is **all 0s** if the node wants to add a validator
 
-Snapshots are calculated using the ***processHeaders*** method:
+Snapshots are calculated using the _**processHeaders**_ method:
 
-````go title="consensus/ibft/snapshot.go"
+```go
 func (i *Ibft) processHeaders(headers []*types.Header) error {
 	if len(headers) == 0 {
 		return nil
@@ -308,31 +313,30 @@ func (i *Ibft) processHeaders(headers []*types.Header) error {
 	i.store.updateLastBlock(headers[len(headers)-1].Number)
 	return nil
 }
-````
+```
 
-This method is usually called with 1 header, but the flow is the same even with multiple headers. <br />
-For each passed-in header, IBFT needs to verify that the proposer of the header is the validator. This can be done easily by 
-grabbing the latest snapshot, and checking if the node is in the validator set.
+This method is usually called with 1 header, but the flow is the same even with multiple headers.\
+For each passed-in header, IBFT needs to verify that the proposer of the header is the validator. This can be done easily by grabbing the latest snapshot, and checking if the node is in the validator set.
 
-Next, the nonce is checked. The vote is included, and tallied - and if there are enough votes a node is added/removed from 
-the validator set, following which the new snapshot is saved.
+Next, the nonce is checked. The vote is included, and tallied - and if there are enough votes a node is added/removed from the validator set, following which the new snapshot is saved.
 
-#### Snapshot Store
+**Snapshot Store**
 
-The snapshot service manages and updates an entity called the **snapshotStore**, which stores the list of all available snapshots.
-Using it, the service is able to quickly figure out which snapshot is associated with which block height.
-````go title="consensus/ibft/snapshot.go"
+The snapshot service manages and updates an entity called the **snapshotStore**, which stores the list of all available snapshots. Using it, the service is able to quickly figure out which snapshot is associated with which block height.
+
+```go
 type snapshotStore struct {
 	lastNumber uint64
 	lock       sync.Mutex
 	list       snapshotSortedList
 }
-````
+```
 
-### IBFT Startup
+#### IBFT Startup
 
 To start up IBFT, the Polygon Edge firstly needs to set up the IBFT transport:
-````go title="consensus/ibft/ibft.go"
+
+```go
 func (i *Ibft) setupTransport() error {
 	// use a gossip protocol
 	topic, err := i.network.NewTopic(ibftProto, &proto.MessageReq{})
@@ -369,15 +373,16 @@ func (i *Ibft) setupTransport() error {
 	i.transport = &gossipTransport{topic: topic}
 	return nil
 }
-````
+```
 
-It essentially creates a new topic with IBFT proto, with a new proto buff message.<br />
+It essentially creates a new topic with IBFT proto, with a new proto buff message.\
 The messages are meant to be used by validators. The Polygon Edge then subscribes to the topic and handles messages accordingly.
 
-#### MessageReq
+**MessageReq**
 
 The message exchanged by validators:
-````go title="consensus/ibft/proto/ibft.proto"
+
+```go
 message MessageReq {
     // type is the type of the message
     Type type = 1;
@@ -412,20 +417,20 @@ message View {
     uint64 round = 1;
     uint64 sequence = 2;
 }
-````
+```
 
-The **View** field in the **MessageReq** represents the current node position inside the chain. 
-It has a *round*, and a *sequence* attribute.
+The **View** field in the **MessageReq** represents the current node position inside the chain. It has a _round_, and a _sequence_ attribute.
+
 * **round** represents the proposer round for the height
 * **sequence** represents the height of the blockchain
 
-The *msgQueue* filed in the IBFT implementation has the purpose of storing message requests. It orders messages by 
-the *View* (firstly by sequence, then by round). The IBFT implementation also possesses different queues for different states in the system.
+The _msgQueue_ filed in the IBFT implementation has the purpose of storing message requests. It orders messages by the _View_ (firstly by sequence, then by round). The IBFT implementation also possesses different queues for different states in the system.
 
-### IBFT States
+#### IBFT States
 
 After the consensus mechanism is started using the **Start** method, it runs into an infinite loop which simulates a state machine:
-````go title="consensus/ibft/ibft.go"
+
+```go
 func (i *Ibft) start() {
 	// consensus always starts in SyncState mode in case it needs
 	// to sync with other nodes.
@@ -472,33 +477,29 @@ func (i *Ibft) runCycle() {
 		i.runSyncState()
 	}
 }
-````
+```
 
-#### SyncState
+**SyncState**
 
 All nodes initially start in the **Sync** state.
 
-This is because fresh data needs to be fetched from the blockchain. The client needs to find out if it's the validator, 
-find the current snapshot. This state resolves any pending blocks.
+This is because fresh data needs to be fetched from the blockchain. The client needs to find out if it's the validator, find the current snapshot. This state resolves any pending blocks.
 
-After the sync finishes, and the client determines it is indeed a validator, it needs to transfer to **AcceptState**.
-If the client is **not** a validator, it will continue syncing, and stay in **SyncState**
+After the sync finishes, and the client determines it is indeed a validator, it needs to transfer to **AcceptState**. If the client is **not** a validator, it will continue syncing, and stay in **SyncState**
 
-#### AcceptState
+**AcceptState**
 
-The **Accept** state always check the snapshot and the validator set. If the current node is not in the validators set,
-it moves back to the **Sync** state.
+The **Accept** state always check the snapshot and the validator set. If the current node is not in the validators set, it moves back to the **Sync** state.
 
-On the other hand, if the node **is** a validator, it calculates the proposer. If it turns out that the current node is the 
-proposer, it builds a block, and sends preprepare and then prepare messages.
+On the other hand, if the node **is** a validator, it calculates the proposer. If it turns out that the current node is the proposer, it builds a block, and sends preprepare and then prepare messages.
 
 * Preprepare messages - messages sent by proposers to validators, to let them know about the proposal
 * Prepare messages - messages where validators agree on a proposal. All nodes receive all prepare messages
 * Commit messages - messages containing commit information for the proposal
 
-If the current node **is not** a validator, it uses the *getNextMessage* method to read a message from the previously shown queue. <br />
+If the current node **is not** a validator, it uses the _getNextMessage_ method to read a message from the previously shown queue.\
 It waits for the preprepare messages. Once it is confirmed everything is correct, the node moves to the **Validate** state.
 
-#### ValidateState
+**ValidateState**
 
-The **Validate** state is rather simple - all nodes do in this state is read messages and add them to their local snapshot state. 
+The **Validate** state is rather simple - all nodes do in this state is read messages and add them to their local snapshot state.
