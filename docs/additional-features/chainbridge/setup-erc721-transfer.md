@@ -3,13 +3,13 @@ id: setup-erc721-transfer
 title: ERC721 NFT Transfer
 ---
 
-# ZRC721 NFT Transfer
+# ERC721 NFT Transfer
 
-This section guides you through setting up an ZRC721 bridge and sending NFTs between blockchain networks.
+This section guides you through setting up an ERC721 bridge and sending NFTs between blockchain networks.
 
 ### Step 1: Register resource ID
 
-You will first need to register the resource ID for the ZRC721 token in the Bridge contracts on both chains.
+You will first need to register the resource ID for the ERC721 token in the Bridge contracts on both chains.
 
 ```bash
 # For Polygon PoS chain

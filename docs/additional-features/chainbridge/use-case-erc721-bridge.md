@@ -10,15 +10,15 @@ keywords:
 description: Example for to bridge ZRC721 contract
 ---
 
-# Use case - ZRC721 Bridge
+# Use case - ERC721 Bridge
 
-This section aims to give you a setup flow of ZRC721 Bridge for a practical use case.
+This section aims to give you a setup flow of ERC721 Bridge for a practical use case.
 
 In this guide, you will use Zchains PoS testnet and Zchains local chain. Please make sure you have JSON-RPC endpoint for Mumbai and you've set up Zchains in local environment. Please refer to [Local Setup](../../get-started/set-up-ibft-locally/) or [Cloud Setup](../../get-started/set-up-ibft-on-the-cloud/) for more details.
 
 ### Scenario
 
-This scenario is to setup a Bridge for the ZRC721 NFT that has been deployed in public chain (Zchains PoS) already in order to enable low-cost transfer in a private chain (Zchains) for users in a regular case. In such a case, the original metadata has been defined in the public chain and the only NFTs that have been transferred from Public chain can exist in the private chain. For that reason, you'll need to use lock/release mode in the public chain and burn/mint mode in the private chain.
+This scenario is to setup a Bridge for the ERC721 NFT that has been deployed in public chain (Zchains PoS) already in order to enable low-cost transfer in a private chain (Zchains) for users in a regular case. In such a case, the original metadata has been defined in the public chain and the only NFTs that have been transferred from Public chain can exist in the private chain. For that reason, you'll need to use lock/release mode in the public chain and burn/mint mode in the private chain.
 
 When sending NFTs from the public chain to the private chain, the NFT will be locked in ZRC721 Handler contract in the public chain and the same NFT will be minted in the private chain. On the other hand, in case of transfer from the private chain to the public chain, the NFT in the private chain will be burned and the same NFT will be released from ERC721 Handler contract in the public chain.
 
