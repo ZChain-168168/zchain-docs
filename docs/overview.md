@@ -14,7 +14,7 @@ Zchains also supports communication with multiple blockchain networks, enabling 
 
 Industry standard wallets can be used to interact with Zchains through the [JSON-RPC](working-with-node/query-json-rpc/) endpoints and node operators can perform various actions on the nodes through the [gRPC](working-with-node/query-operator-info/) protocol.
 
-To find out more about Polygon, visit the [official website](https://polygon.technology).
+To find out more about Zchains, visit the [official website](https://polygon.technology).
 
 [**GitHub repository**](https://github.com/0xPolygon/polygon-edge)
 

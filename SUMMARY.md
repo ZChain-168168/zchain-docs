@@ -10,7 +10,7 @@
       * [General Definitions](docs/additional-features/chainbridge/definitions.md)
       * [Overview](docs/additional-features/chainbridge/overview.md)
       * [ZRC20 Token Transfer](docs/additional-features/chainbridge/setup-erc20-transfer.md)
-      * [ERC721 NFT Transfer](docs/additional-features/chainbridge/setup-erc721-transfer.md)
+      * [ZRC721 NFT Transfer](docs/additional-features/chainbridge/setup-erc721-transfer.md)
       * [Setup](docs/additional-features/chainbridge/setup.md)
       * [Use case - ZRC20 Bridge](docs/additional-features/chainbridge/use-case-erc20-bridge.md)
       * [Use case - ZRC721 Bridge](docs/additional-features/chainbridge/use-case-erc721-bridge.md)

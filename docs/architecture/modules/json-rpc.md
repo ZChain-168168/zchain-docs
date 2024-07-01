@@ -1,25 +1,23 @@
 ---
-id: json-rpc 
+id: json-rpc
 title: JSON RPC
 ---
 
-## Overview
+# JSON RPC
 
-The **JSON RPC** module implements the **JSON RPC API layer**, something that dApp developers use to interact with the
-blockchain.
+### Overview
 
-It includes support for standard **[json-rpc endpoints](https://eth.wiki/json-rpc/API)**, as well as websocket
-endpoints.
+The **JSON RPC** module implements the **JSON RPC API layer**, something that dApp developers use to interact with the blockchain.
 
-## Blockchain Interface
+It includes support for standard [**json-rpc endpoints**](https://eth.wiki/json-rpc/API), as well as websocket endpoints.
 
-The Polygon Edge uses the ***blockchain interface*** to define all the methods that the JSON RPC module needs to use, in
-order to deliver its endpoints.
+### Blockchain Interface
 
-The blockchain interface is implemented by the **[Minimal](/docs/architecture/modules/minimal)** server. It is the base implementation
-that's passed into the JSON RPC layer.
+TheZchains uses the _**blockchain interface**_ to define all the methods that the JSON RPC module needs to use, in order to deliver its endpoints.
 
-````go title="jsonrpc/blockchain.go"
+The blockchain interface is implemented by the [**Minimal**](minimal/) server. It is the base implementation that's passed into the JSON RPC layer.
+
+```go
 type blockchainInterface interface {
 	// Header returns the current header of the chain (genesis if empty)
 	Header() *types.Header
@@ -53,27 +51,26 @@ type blockchainInterface interface {
 
 	stateHelperInterface
 }
-````
+```
 
-## ETH Endpoints
+### ETH Endpoints
 
 All the standard JSON RPC endpoints are implemented in:
 
-````bash
+```bash
 jsonrpc/eth_endpoint.go
-````
+```
 
-## Filter Manager
+### Filter Manager
 
 The **Filter Manager** is a service that runs alongside the JSON RPC server.
 
-It provides support for filtering blocks on the blockchain.<br />
+It provides support for filtering blocks on the blockchain.\
 Specifically, it includes both a **log** and a **block** level filter.
 
-The Filter Manager relies heavily on Subscription Events, mentioned in
-the [Blockchain](blockchain#blockchain-subscriptions) section
+The Filter Manager relies heavily on Subscription Events, mentioned in the [Blockchain](blockchain/#blockchain-subscriptions) section
 
-````go title="jsonrpc/filter_manager.go"
+```go
 type Filter struct {
 	id string
 
@@ -115,11 +112,11 @@ type FilterManager struct {
 	blockStream *blockStream
 }
 
-````
+```
 
-Filter Manager events get dispatched in the *Run* method:
+Filter Manager events get dispatched in the _Run_ method:
 
-````go title="jsonrpc/filter_manager.go"
+```go
 func (f *FilterManager) Run() {
 
 	// watch for new events in the blockchain
@@ -166,7 +163,8 @@ func (f *FilterManager) Run() {
 		}
 	}
 }
-````
+```
 
-## 📜 Resources
-* **[Ethereum JSON-RPC](https://eth.wiki/json-rpc/API)**
+### 📜 Resources
+
+* [**Ethereum JSON-RPC**](https://eth.wiki/json-rpc/API)

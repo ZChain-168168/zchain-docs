@@ -20,8 +20,8 @@ Firstly, we will deploy contracts to the Polygon PoS chain by `cb-sol-cli deploy
 
 ```bash
 # Deploy all required contracts into Polygon PoS chain
-$ cb-sol-cli deploy --all --chainId 99 \
-  --url https://rpc-mumbai.matic.today \
+$ cb-sol-cli deploy --all --chainId 168168 \
+  --url https://rpc.zchains.com \
   --gasPrice [GAS_PRICE] \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   --relayers [RELAYER_ACCOUNT_ADDRESS] \
@@ -35,8 +35,8 @@ Learn about chainID and JSON-RPC URL [here](definitions/)
 The default gas price in `cb-sol-cli` is `20000000` (`0.02 Gwei`). To set the appropriate gas price in a transaction, please set the value using the `--gasPrice` argument.
 
 ```bash
-$ cb-sol-cli deploy --all --chainId 99 \
-  --url https://rpc-mumbai.matic.today \
+$ cb-sol-cli deploy --all --chainId 168168\
+  --url https://rpc.zchains.com \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   --relayers [RELAYER_ACCOUNT_ADDRESS] \
   --relayerThreshold 1 \
@@ -48,7 +48,7 @@ $ cb-sol-cli deploy --all --chainId 99 \
 
 :::caution
 
-The Bridge contract takes approximately 0x3f97b8 (4167608) gas to deploy. Please make sure the blocks being generated have enough block gas limit to contain the contract creation transaction. To learn more about changing block gas limit in Polygon Edge, please visit the [Local Setup](../../get-started/set-up-ibft-locally/)
+The Bridge contract takes approximately 0x3f97b8 (4167608) gas to deploy. Please make sure the blocks being generated have enough block gas limit to contain the contract creation transaction. To learn more about changing block gas limit in Zchains, please visit the [Local Setup](../../get-started/set-up-ibft-locally/)
 
 :::
 
@@ -129,10 +129,10 @@ Next, You need to create `config.json` and set the JSON-RPC URLs, relayer addres
 {
   "chains": [
     {
-      "name": "mumbai",
+      "name": "zchain",
       "type": "ethereum",
       "id": "99",
-      "endpoint": "https://rpc-mumbai.matic.today",
+      "endpoint": "https://rpc.zchains.com",
       "from": "<RELAYER_ACCOUNT_ADDRESS>",
       "opts": {
         "bridge": "<BRIDGE_CONTRACT_ADDRESS>",

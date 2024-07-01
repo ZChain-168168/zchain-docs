@@ -3,18 +3,19 @@ id: storage
 title: Storage
 ---
 
-## Overview
+# Storage
 
-The Polygon Edge currently utilizes **LevelDB** for data storage, as well as an **in-memory** data store.
+### Overview
 
-Throughout the Polygon Edge, when modules need to interact with the underlying data store, 
-they don't need to know which DB engine or service they're speaking to.
+The Zchains currently utilizes **LevelDB** for data storage, as well as an **in-memory** data store.
+
+Throughout the Zchains, when modules need to interact with the underlying data store, they don't need to know which DB engine or service they're speaking to.
 
 The DB layer is abstracted away between a module called **Storage**, which exports interfaces that modules query.
 
 Each DB layer, for now only **LevelDB**, implements these methods separately, making sure they fit in with their implementation.
 
-````go title="blockchain/storage/storage.go"
+```go
 // Storage is a generic blockchain storage
 type Storage interface {
 	ReadCanonicalHash(n uint64) (types.Hash, bool)
@@ -50,16 +51,15 @@ type Storage interface {
 
 	Close() error
 }
-````
+```
 
-## LevelDB
+### LevelDB
 
-### Prefixes
+#### Prefixes
 
-In order to make querying the LevelDB storage deterministic, and to avoid key storage clashing, the Polygon Edge leverages
-prefixes and sub-prefixes when storing data
+In order to make querying the LevelDB storage deterministic, and to avoid key storage clashing, the Zchains leverages prefixes and sub-prefixes when storing data
 
-````go title="blockchain/storage/keyvalue.go"
+```go
 // Prefixes for the key-value store
 var (
 	// DIFFICULTY is the difficulty prefix
@@ -96,14 +96,15 @@ var (
 	NUMBER = []byte("number")
 	EMPTY  = []byte("empty")
 )
-````
+```
 
-## Future Plans
+### Future Plans
 
 The plans for the near future include adding some of the most popular DB solutions, such as:
+
 * PostgreSQL
 * MySQL
 
+### 📜 Resources
 
-## 📜 Resources
-* **[LevelDB](https://github.com/google/leveldb)**
+* [**LevelDB**](https://github.com/google/leveldb)

@@ -3,24 +3,27 @@ id: minimal
 title: Minimal
 ---
 
-## Overview
+# Minimal
 
-As mentioned before, Polygon Edge is a set of different modules, all connected to each other.<br />
+### Overview
+
+As mentioned before, Zchains is a set of different modules, all connected to each other.\
 The **Blockchain** is connected to the **State**, or for example, **Synchronization**, which pipes new blocks into the **Blockchain**.
 
-**Minimal** is the cornerstone for these inter-connected modules. <br />
-It acts as a central hub for all the services that run on the Polygon Edge.
+**Minimal** is the cornerstone for these inter-connected modules.\
+It acts as a central hub for all the services that run on the Zchains.
 
-## Startup Magic
+### Startup Magic
 
 Among other things, Minimal is responsible for:
+
 * Setting up data directories
 * Creating a keystore for libp2p communication
 * Creating storage
 * Setting up consensus
 * Setting up the blockchain object with GRPC, JSON RPC, and Synchronization
 
-````go title="minimal/server.go"
+```go
 func NewServer(logger hclog.Logger, config *Config) (*Server, error) {
 	m := &Server{
 		logger: logger,
@@ -108,4 +111,4 @@ func NewServer(logger hclog.Logger, config *Config) (*Server, error) {
 	m.libp2pServer.Serve()
 	return m, nil
 }
-````
+```

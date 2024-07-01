@@ -3,49 +3,51 @@ id: propose-new-feature
 title: Propose a new feature
 ---
 
-## Overview
+# Propose a new feature
 
-If you want to include a fix, or just contribute to the code, it is highly encouraged for you to reach out to the team first. <br/>
-The Polygon Edge uses a relatively basic feature proposition template, that is concise and to the point.
+### Overview
 
-## PR Template
+If you want to include a fix, or just contribute to the code, it is highly encouraged for you to reach out to the team first.\
+The Zchains uses a relatively basic feature proposition template, that is concise and to the point.
 
-### Description
+### PR Template
+
+#### Description
 
 Please provide a detailed description of what was done in this PR
 
-### Changes include
+#### Changes include
 
-- [ ] Bugfix (non-breaking change that solves an issue)
-- [ ] Hotfix (change that solves an urgent issue, and requires immediate attention)
-- [ ] New feature (non-breaking change that adds functionality)
-- [ ] Breaking change (change that is not backward-compatible and/or changes current functionality)
+* [ ] Bugfix (non-breaking change that solves an issue)
+* [ ] Hotfix (change that solves an urgent issue, and requires immediate attention)
+* [ ] New feature (non-breaking change that adds functionality)
+* [ ] Breaking change (change that is not backward-compatible and/or changes current functionality)
 
-### Breaking changes
+#### Breaking changes
 
 Please complete this section if any breaking changes have been made, otherwise delete it
 
-### Checklist
+#### Checklist
 
-- [ ] I have assigned this PR to myself
-- [ ] I have added at least 1 reviewer
-- [ ] I have added the relevant labels
-- [ ] I have updated the official documentation
-- [ ] I have added sufficient documentation in code
+* [ ] I have assigned this PR to myself
+* [ ] I have added at least 1 reviewer
+* [ ] I have added the relevant labels
+* [ ] I have updated the official documentation
+* [ ] I have added sufficient documentation in code
 
-### Testing
+#### Testing
 
-- [ ] I have tested this code with the official test suite
-- [ ] I have tested this code manually
+* [ ] I have tested this code with the official test suite
+* [ ] I have tested this code manually
 
-## Manual tests
+### Manual tests
 
 Please complete this section if you ran manual tests for this functionality, otherwise delete it
 
-### Documentation update
+#### Documentation update
 
 Please link the documentation update PR in this section if it's present, otherwise delete it
 
-### Additional comments
+#### Additional comments
 
 Please post additional comments in this section if you have them, otherwise delete it

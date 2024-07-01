@@ -9,7 +9,7 @@ title: Report an issue
 
 Sometimes things break.\
 It's always better to let the team know about any issues you might be encountering.\
-On the Polygon Edge GitHub page, you can file a new issue, and start discussing it with the team.
+On the Zchains GitHub page, you can file a new issue, and start discussing it with the team.
 
 ### Issue Template
 
@@ -22,7 +22,7 @@ Describe your issue in as much detail as possible here
 #### Your environment
 
 * OS and version
-* version of the Polygon Edge
+* version of the Zchains
 * branch that causes this issue
 
 #### Steps to reproduce
