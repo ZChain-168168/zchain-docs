@@ -1,5 +1,5 @@
-## Polygon Edge Docs
+## Zchain Docs
 
-The Polygon Edge docs have been migrated to https://github.com/maticnetwork/matic-docs
+The Zchain docs have been migrated to https://github.com/maticnetwork/matic-docs
 
 This repo is archived.
