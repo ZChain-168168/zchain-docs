@@ -18,4 +18,4 @@ To find out more about Z Chain, visit the [official website](https://zchains.com
 
 This is a work in progress so architectural changes may happen in the future, so please contact the Z team if you would like to use it in production.
 
-To get started by running a`z-edge` network locally, please read: [Installation](get-started/installation.md) and [Local Setup](get-started/set-up-ibft-locally.md).
+To get started by running a`poly-edge` network locally, please read: [Installation](get-started/installation.md) and [Local Setup](get-started/set-up-ibft-locally.md).
