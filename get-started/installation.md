@@ -20,10 +20,10 @@ The stable branch is `develop`.
 Copy
 
 ```
-git clone https://github.com/0xEVMBuilder/z-edge.git
-cd z-edge/
-go build main.go -o z-edge
-sudo mv z-edge /usr/local/bin
+git clone https://github.com/0xEVMBuilder/polygon-edge.git
+cd polygon-edge/
+go build main.go -o polygon-edge
+sudo mv polygon-edge /usr/local/bin
 ```
 
 ***
@@ -32,6 +32,6 @@ sudo mv z-edge /usr/local/bin
 
 Prior to using `go install` make sure that you have Go `>=1.17` installed and properly configured.
 
-`go install github.com/0xEVMBuilder/z-edge@develop`
+`go install github.com/0xEVMBuilder/polygon-edge@develop`
 
 The binary will be available in your `GOBIN` environment variable, and will include the latest changes from the mainline `develop` branch.
