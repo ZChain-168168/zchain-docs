@@ -23,7 +23,7 @@ Epochs are a concept introduced with the addition of PoS to the Zchains.
 
 Epochs are considered to be a special time frame (in blocks) in which a certain set of validators can produce blocks. Their lengths are modifiable, meaning node operators can configure the length of an epoch during genesis generation.
 
-At the end of each epoch, an _epoch block_ is created, and after that event a new epoch starts. To learn more about epoch blocks, see the [Epoch Blocks](pos-concepts/#epoch-blocks) section.
+At the end of each epoch, an _epoch block_ is created, and after that event a new epoch starts. To learn more about epoch blocks, see the [Epoch Blocks](../docs/consensus/pos-concepts/#epoch-blocks) section.
 
 Validator sets are updated at the end of each epoch. Nodes query the validator set from the Staking Smart Contract during the creation of the epoch block, and save the obtained data to local storage. This query and save cycle is repeated at the end of each epoch.
 

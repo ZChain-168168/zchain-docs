@@ -34,7 +34,7 @@ export LOADBOT_0x9A2E59d06899a383ef47C1Ec265317986D026055=154c4bc0cca942d8a0b49e
 
 #### Deploy Mode
 
-The deploy mode conducts contract deployment with each new transaction in the loadbot run. The contract being deployed can be specified using [specific flags](../get-started/cli-commands/#loadbot-flags), or if the contract path is omitted, a default `Greeter.sol` [contract](https://github.com/nomiclabs/hardhat/blob/master/packages/hardhat-core/sample-projects/basic/contracts/Greeter.sol) is used instead.
+The deploy mode conducts contract deployment with each new transaction in the loadbot run. The contract being deployed can be specified using [specific flags](../docs/get-started/cli-commands/#loadbot-flags), or if the contract path is omitted, a default `Greeter.sol` [contract](https://github.com/nomiclabs/hardhat/blob/master/packages/hardhat-core/sample-projects/basic/contracts/Greeter.sol) is used instead.
 
 #### Terminology
 

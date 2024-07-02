@@ -8,7 +8,7 @@ title: State
 To truly understand how **State** works, you must understand some basic Ethereum concepts.\
 
 
-We highly recommend reading the [**State in Ethereum guide**](../../concepts/ethereum-state/).
+We highly recommend reading the [**State in Ethereum guide**](../../docs/concepts/ethereum-state/).
 
 ### Overview
 

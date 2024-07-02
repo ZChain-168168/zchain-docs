@@ -9,17 +9,17 @@ title: Local Setup
 
 The below guide will instruct you on how to set up a Zchains network on your local machine for testing and development purposes.
 
-The procedure differs greatly from the way you would want to set up Zchains network for a real use scenario on a cloud provider: [Cloud Setup](set-up-ibft-on-the-cloud/)
+The procedure differs greatly from the way you would want to set up Zchains network for a real use scenario on a cloud provider: [Cloud Setup](set-up-ibft-on-the-cloud.md)
 
 :::
 
 ### Requirements
 
-Refer to [Installation](installation/) to install Zchains.
+Refer to [Installation](installation.md) to install Zchains.
 
 ### Overview
 
-![Local Setup](../../img/ibft-setup/local.svg)
+![Local Setup](../img/ibft-setup/local.svg)
 
 In this guide, our goal is to establish a working `polygon-edge` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650). The blockchain network will consist of 4 nodes of whom all 4 are validator nodes, and as such are eligible for both proposing block, and validating blocks that came from other proposers. All 4 nodes will run on the same machine, as the idea of this guide is to give you a fully functional IBFT cluster in the least amount of time.
 
@@ -299,7 +299,7 @@ To briefly go over what has been done so far:
 * The _seal_ flag means that the node which is being started is going to participate in block sealing
 * The _chain_ flag specifies which genesis file should be used for chain configuration
 
-The structure of the genesis file is covered in the [CLI Commands](cli-commands/) section.
+The structure of the genesis file is covered in the [CLI Commands](../docs/get-started/cli-commands/) section.
 
 After running the previous commands, you have set up a 4 node Polygon Edge network, capable of sealing blocks and recovering from node failure.
 
@@ -317,7 +317,7 @@ Example:
 polygon-edge server --config ./test/config-node1.json
 ```
 
-Currently, we only support `json` based configuration file, sample config file can be found [here](../configuration/sample-config/)
+Currently, we only support `json` based configuration file, sample config file can be found [here](../docs/configuration/sample-config/)
 
 :::
 
@@ -364,4 +364,4 @@ Now that you've set up at least 1 running client, you can go ahead and interact 
 * Node 3: `http://localhost:30002`
 * Node 4: `http://localhost:40002`
 
-Follow this guide to issue operator commands to the newly built cluster: [How to query operator information](../working-with-node/query-operator-info/) (the GRPC ports for the cluster we have built are `10000`/`20000`/`30000`/`40000` for each node respectively)
+Follow this guide to issue operator commands to the newly built cluster: [How to query operator information](../docs/working-with-node/query-operator-info/) (the GRPC ports for the cluster we have built are `10000`/`20000`/`30000`/`40000` for each node respectively)

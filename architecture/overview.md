@@ -12,7 +12,7 @@ This is something that is present in almost all parts of the Zchains. Below, you
 
 ### Zchains Layering
 
-![Polygon Edge Architecture](../../img/Architecture.jpg)
+![Polygon Edge Architecture](../img/Architecture.jpg)
 
 ### Libp2p
 
@@ -28,11 +28,10 @@ Most importantly, it provides a great foundation for more advanced features, whi
 
 The separation of the synchronization and consensus protocols allows for modularity and implementation of **custom** sync and consensus mechanisms - depending on how the client is being run.
 
-Polygon Edge is designed to offer off-the-shelf pluggable consensus algorithms.
+Zchains is designed to offer off-the-shelf pluggable consensus algorithms.
 
 The current list of supported consensus algorithms:
 
-* IBFT PoA
 * IBFT PoS
 
 ### Blockchain

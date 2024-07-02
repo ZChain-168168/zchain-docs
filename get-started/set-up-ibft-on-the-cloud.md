@@ -9,11 +9,11 @@ title: Cloud Setup
 
 The below guide will instruct you on how to set up a Zchains network on a cloud provider for a production setup of your testnet or mainnet.
 
-If you would like to setup a Zchains network locally to quickly test the `polygon-edge` before doing a production-like setup, please refer to [Local Setup](set-up-ibft-locally/) :::
+If you would like to setup a Zchains network locally to quickly test the `polygon-edge` before doing a production-like setup, please refer to [Local Setup](../docs/get-started/set-up-ibft-locally/) :::
 
 ### Requirements
 
-Refer to [Installation](installation/) to install Zchains.
+Refer to [Installation](../docs/get-started/installation/) to install Zchains.
 
 #### Setting up the VM connectivity
 
@@ -23,7 +23,7 @@ As the only part of the `polygon-edge` that needs to be exposed to other VMs is 
 
 ### Overview
 
-![Cloud setup](../../img/ibft-setup/cloud.svg)
+![Cloud setup](../img/ibft-setup/cloud.svg)
 
 In this guide, our goal is to establish a working `polygon-edge` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650). The blockchain network will consist of 4 nodes of whom all 4 are validator nodes, and as such are eligible for both proposing block, and validating blocks that came from other proposers. Each of the 4 nodes will run on their own VM, as the idea of this guide is to give you a fully functional Zchains network while keeping the validator keys private to ensure a trustless network setup.
 
@@ -283,7 +283,7 @@ After specifying the:
 
 and generating the `genesis.json`, you should copy it over to all of the VMs in the network. Depending on your setup you may copy/paste it, send it to the node operator, or simply SCP/FTP it over.
 
-The structure of the genesis file is covered in the [CLI Commands](cli-commands/) section.
+The structure of the genesis file is covered in the [CLI Commands](../docs/get-started/cli-commands/) section.
 
 ### Step 4: Run all the clients
 
@@ -349,7 +349,7 @@ Example :
 polygon-edge server --config ./test/config-node1.json
 ```
 
-Currently, we only support `json` based configuration file, sample config file can be found [here](../configuration/sample-config/)
+Currently, we only support `json` based configuration file, sample config file can be found [here](../docs/configuration/sample-config/)
 
 :::
 

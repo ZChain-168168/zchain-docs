@@ -34,7 +34,7 @@ $ polygon-edge backup --grpc-address 127.0.0.1:9632 --out backup.dat [--from 0x0
 
 #### Restore
 
-A server imports blocks from an archive at the start when starting with `--restore` flag. Please make sure that there is a key for new node. To find out more about importing or generating keys, visit the [Secret Managers section](../configuration/secret-managers/set-up-aws-ssm/).
+A server imports blocks from an archive at the start when starting with `--restore` flag. Please make sure that there is a key for new node. To find out more about importing or generating keys, visit the [Secret Managers section](../docs/configuration/secret-managers/set-up-aws-ssm/).
 
 ```bash
 $ polygon-edge server --restore archive.dat
@@ -65,12 +65,12 @@ Now that the client is not running, the data directory can be backed up to anoth
 
 #### Step 1: Stop the running client
 
-If any instance of the Polygon Edge is running, it needs to be stopped in order for step 2 to be successful.
+If any instance of the Zchains is running, it needs to be stopped in order for step 2 to be successful.
 
 #### Step 2: Copy the backed up data directory to the desired folder
 
 Once the client is not running, the data directory which was previously backed up can be copied over to the desired folder. Additionally, restore the previously copied `genesis` file.
 
-#### Step 3: Run the Polygon Edge client while specifying the correct data directory
+#### Step 3: Run the Zchains client while specifying the correct data directory
 
-In order for the Polygon Edge to use the restored data directory, at launch, the user needs to specify the path to the data directory. Please consult the [CLI Commands](../get-started/cli-commands/) section on information regarding the `data-dir` flag.
+In order for the Polygon Edge to use the restored data directory, at launch, the user needs to specify the path to the data directory. Please consult the [CLI Commands](../get-started/cli-command.md) section on information regarding the `data-dir` flag.

@@ -9,7 +9,7 @@ title: Set up and use Proof of Stake (PoS)
 
 This guide goes into detail on how to set up a Proof of Stake network with the Zchains, how to stake funds for nodes to become validators and how to unstake funds.
 
-It **highly encouraged** to read and go through the [Local Setup](../get-started/set-up-ibft-locally/) / [Cloud Setup](../get-started/set-up-ibft-on-the-cloud/) sections, before going along with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the Zchains.
+It **highly encouraged** to read and go through the [Local Setup](../docs/get-started/set-up-ibft-locally/) / [Cloud Setup](../docs/get-started/set-up-ibft-on-the-cloud/) sections, before going along with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the Zchains.
 
 Currently, there is no limit to the number of validators that can stake funds on the Staking Smart Contract.
 
@@ -21,7 +21,7 @@ It holds the necessary testing scripts, ABI files and most importantly the Staki
 
 ### Setting up an N node cluster
 
-Setting up a network with the Zchains is covered in the [Local Setup](../get-started/set-up-ibft-locally/) / [Cloud Setup](../get-started/set-up-ibft-on-the-cloud/) sections.
+Setting up a network with the Zchains is covered in the [Local Setup](../docs/get-started/set-up-ibft-locally/) / [Cloud Setup](../docs/get-started/set-up-ibft-on-the-cloud/) sections.
 
 The **only difference** between setting up a PoS and PoA cluster is in the genesis generation part.
 
@@ -33,7 +33,7 @@ polygon-edge genesis --pos ...
 
 ### Setting the length of an epoch
 
-Epochs are covered in detail in the [Epoch Blocks](pos-concepts/#epoch-blocks) section.
+Epochs are covered in detail in the [Epoch Blocks](../docs/consensus/pos-concepts/#epoch-blocks) section.
 
 To set the size of an epoch for a cluster (in blocks), when generating the genesis file, an additional flag is specified `--epoch-size`:
 
@@ -45,7 +45,7 @@ This value specified in the genesis file that the epoch size should be `50` bloc
 
 The default value for the size of an epoch (in blocks) is `100000`.
 
-:::info Lowering the epoch length As outlined in the [Epoch Blocks](pos-concepts/#epoch-blocks) section, epoch blocks are used to update the validator sets for nodes.
+:::info Lowering the epoch length As outlined in the [Epoch Blocks](../docs/consensus/pos-concepts/#epoch-blocks) section, epoch blocks are used to update the validator sets for nodes.
 
 The default epoch length in blocks (`100000`) may be a long time to way for validator set updates. Considering that new blocks are added \~2s, it would take \~55.5h for the validator set to possibly change.
 
@@ -87,7 +87,7 @@ Where the parameters are:
 
 Any kind of interaction with the staking mechanism is done through the Staking Smart Contract at the specified address.
 
-To learn more about the Staking Smart Contract, please visit the [Staking Smart Contract](pos-concepts/#contract-pre-deployment) section. :::
+To learn more about the Staking Smart Contract, please visit the [Staking Smart Contract](../docs/consensus/pos-concepts/#contract-pre-deployment) section. :::
 
 In order to become part of the validator set, an address needs to stake a certain amount of funds above a threshold.
 
@@ -95,7 +95,7 @@ Currently, the default threshold for becoming part of the validator set is `1 ET
 
 Staking can be initiated by calling the `stake` method of the Staking Smart Contract, and specifying a value `>= 1 ETH`.
 
-After the `.env` file mentioned in the [previous section](pos-stake-unstake/#setting-up-the-provided-helper-scripts) has been set up, and a chain has been started in PoS mode, staking can be done with the following command in the Staking Smart Contract repo:
+After the `.env` file mentioned in the [previous section](../docs/consensus/pos-stake-unstake/#setting-up-the-provided-helper-scripts) has been set up, and a chain has been started in PoS mode, staking can be done with the following command in the Staking Smart Contract repo:
 
 ```bash
 npm run stake
@@ -109,7 +109,7 @@ If the funds being staked are `>= 1 ETH`, the validator set on the Staking Smart
 
 Addresses that have a stake can **only unstake all of their funds** at once.
 
-After the `.env` file mentioned in the [previous section](pos-stake-unstake/#setting-up-the-provided-helper-scripts) has been set up, and a chain has been started in PoS mode, unstaking can be done with the following command in the Staking Smart Contract repo:
+After the `.env` file mentioned in the [previous section](../docs/consensus/pos-stake-unstake/#setting-up-the-provided-helper-scripts) has been set up, and a chain has been started in PoS mode, unstaking can be done with the following command in the Staking Smart Contract repo:
 
 ```bash
 npm run unstake
@@ -119,7 +119,7 @@ npm run unstake
 
 All addresses that stake funds are saved to the Staking Smart Contract.
 
-After the `.env` file mentioned in the [previous section](pos-stake-unstake/#setting-up-the-provided-helper-scripts) has been set up, and a chain has been started in PoS mode, fetching the list of validators can be done with the following command in the Staking Smart Contract repo:
+After the `.env` file mentioned in the [previous section](../docs/consensus/pos-stake-unstake/#setting-up-the-provided-helper-scripts) has been set up, and a chain has been started in PoS mode, fetching the list of validators can be done with the following command in the Staking Smart Contract repo:
 
 ```bash
 npm run info

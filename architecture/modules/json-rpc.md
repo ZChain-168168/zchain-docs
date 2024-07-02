@@ -15,7 +15,7 @@ It includes support for standard [**json-rpc endpoints**](https://eth.wiki/json-
 
 TheZchains uses the _**blockchain interface**_ to define all the methods that the JSON RPC module needs to use, in order to deliver its endpoints.
 
-The blockchain interface is implemented by the [**Minimal**](minimal/) server. It is the base implementation that's passed into the JSON RPC layer.
+The blockchain interface is implemented by the [**Minimal**](minimal.md) server. It is the base implementation that's passed into the JSON RPC layer.
 
 ```go
 type blockchainInterface interface {
@@ -68,7 +68,7 @@ The **Filter Manager** is a service that runs alongside the JSON RPC server.
 It provides support for filtering blocks on the blockchain.\
 Specifically, it includes both a **log** and a **block** level filter.
 
-The Filter Manager relies heavily on Subscription Events, mentioned in the [Blockchain](blockchain/#blockchain-subscriptions) section
+The Filter Manager relies heavily on Subscription Events, mentioned in the [Blockchain](../../docs/architecture/modules/blockchain/#blockchain-subscriptions) section
 
 ```go
 type Filter struct {

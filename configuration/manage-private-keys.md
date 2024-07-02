@@ -14,7 +14,7 @@ The Zchains has two types of private keys that it directly manages:
 
 Currently, the Zchains doesn't offer support for direct account management.
 
-Based on the directory structure outlined in the [Backup & Restore guide](../working-with-node/backup-restore/), the Zchains stores these mentioned key files in two distinct directories - **consensus** and **keystore**.
+Based on the directory structure outlined in the [Backup & Restore guide](../working-with-node/backup-restore.md), the Zchains stores these mentioned key files in two distinct directories - **consensus** and **keystore**.
 
 ### Key format
 
@@ -33,13 +33,13 @@ As the curve is non-standard, it cannot be encoded and stored in any standardize
 
 The private key file mentioned as the _consensus private key_ is also referred to as the **validator private key**. This private key is used when the node is acting as a validator in the network and needs to sign new data.
 
-The private key file is located in `consensus/validator.key`, and adheres to the [key format](manage-private-keys/#key-format) mentioned.
+The private key file is located in `consensus/validator.key`, and adheres to the [key format](../docs/configuration/manage-private-keys/#key-format) mentioned.
 
 ### Networking Private Key
 
 The private key file mentioned for networking is used by libp2p to generate the corresponding PeerID, and allow the node to participate in the network.
 
-It is located in `keystore/libp2p.key`, and adheres to the [key format](manage-private-keys/#key-format) mentioned.
+It is located in `keystore/libp2p.key`, and adheres to the [key format](../docs/configuration/manage-private-keys/#key-format) mentioned.
 
 ### Import / Export
 
