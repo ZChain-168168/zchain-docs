@@ -150,6 +150,6 @@ type Event struct {
 }
 ```
 
-:::tip Refresher Do you remember when we mentioned the _**monitor**_ command in the [CLI Commands](../../docs/get-started/cli-commands/)?
+:::tip Refresher Do you remember when we mentioned the _**monitor**_ command in the [CLI Commands](../../get-started/cli-commands/)?
 
 The Blockchain Events are the original events that happen in Zchains, and they're later mapped to a Protocol Buffers message format for easy transfer. :::

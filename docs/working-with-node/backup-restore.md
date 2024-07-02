@@ -34,7 +34,7 @@ $ polygon-edge backup --grpc-address 127.0.0.1:9632 --out backup.dat [--from 0x0
 
 #### Restore
 
-A server imports blocks from an archive at the start when starting with `--restore` flag. Please make sure that there is a key for new node. To find out more about importing or generating keys, visit the [Secret Managers section](../docs/configuration/secret-managers/set-up-aws-ssm/).
+A server imports blocks from an archive at the start when starting with `--restore` flag. Please make sure that there is a key for new node. To find out more about importing or generating keys, visit the [Secret Managers section](../configuration/secret-managers/set-up-aws-ssm/).
 
 ```bash
 $ polygon-edge server --restore archive.dat
@@ -73,4 +73,4 @@ Once the client is not running, the data directory which was previously backed u
 
 #### Step 3: Run the Polygon Edge client while specifying the correct data directory
 
-In order for the Polygon Edge to use the restored data directory, at launch, the user needs to specify the path to the data directory. Please consult the [CLI Commands](../docs/get-started/cli-commands/) section on information regarding the `data-dir` flag.
+In order for the Polygon Edge to use the restored data directory, at launch, the user needs to specify the path to the data directory. Please consult the [CLI Commands](../get-started/cli-commands/) section on information regarding the `data-dir` flag.

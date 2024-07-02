@@ -108,7 +108,7 @@ File example:
 }
 ```
 
-Checkout [CLI Commands](../docs/get-started/cli-commands/) section to get information on how to use these parameters.
+Checkout [CLI Commands](../get-started/cli-commands/) section to get information on how to use these parameters.
 
 ### Typescript schema
 

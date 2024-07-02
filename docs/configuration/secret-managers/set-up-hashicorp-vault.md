@@ -12,7 +12,7 @@ Currently, the Zchains is concerned with keeping 2 major runtime secrets:
 * The **validator private key** used by the node, if the node is a validator
 * The **networking private key** used by libp2p, for participating and communicating with other peers
 
-For additional information, please read through the [Managing Private Keys Guide](../../docs/configuration/manage-private-keys/)
+For additional information, please read through the [Managing Private Keys Guide](../manage-private-keys/)
 
 The modules of the Zchains **should not need to know how to keep secrets**. Ultimately, a module should not care if a secret is stored on a far-away server or locally on the node's disk.
 
@@ -22,7 +22,7 @@ The node operator that's starting the Zchains can now specify which secrets mana
 
 This article details the necessary steps to get the Zchains up and running with a [Hashicorp Vault](https://www.vaultproject.io/) server.
 
-:::info previous guides It is **highly recommended** that before going through this article, articles on [**Local Setup**](../../docs/get-started/set-up-ibft-locally/) and [**Cloud Setup**](../../docs/get-started/set-up-ibft-on-the-cloud/) are read. :::
+:::info previous guides It is **highly recommended** that before going through this article, articles on [**Local Setup**](../../get-started/set-up-ibft-locally/) and [**Cloud Setup**](../../get-started/set-up-ibft-on-the-cloud/) are read. :::
 
 ### Prerequisites
 
@@ -48,8 +48,8 @@ polygon-edge secrets generate --dir <PATH> --token <TOKEN> --server-url <SERVER_
 Parameters present:
 
 * `PATH` is the path to which the configuration file should be exported to. Default `./secretsManagerConfig.json`
-* `TOKEN` is the access token previously mentioned in the [prerequisites section](../../docs/configuration/secret-managers/set-up-hashicorp-vault/#prerequisites)
-* `SERVER_URL` is the URL of the API for the Vault server, also mentioned in the [prerequisites section](../../docs/configuration/secret-managers/set-up-hashicorp-vault/#prerequisites)
+* `TOKEN` is the access token previously mentioned in the [prerequisites section](set-up-hashicorp-vault/#prerequisites)
+* `SERVER_URL` is the URL of the API for the Vault server, also mentioned in the [prerequisites section](set-up-hashicorp-vault/#prerequisites)
 * `NODE_NAME` is the name of the current node for which the Vault configuration is being set up as. It can be an arbitrary value. Default `polygon-edge-node`
 
 :::caution Node names Be careful when specifying node names.
@@ -70,7 +70,7 @@ The `PATH` param is the location of the previously generated secrets manager par
 
 ### Step 3 - Generate the genesis file
 
-The genesis file should be generated in a similar manner to the [**Local Setup**](../../docs/get-started/set-up-ibft-locally/) and [**Cloud Setup**](../../docs/get-started/set-up-ibft-on-the-cloud/) guides, with minor changes.
+The genesis file should be generated in a similar manner to the [**Local Setup**](../../get-started/set-up-ibft-locally/) and [**Cloud Setup**](../../get-started/set-up-ibft-on-the-cloud/) guides, with minor changes.
 
 Since Hashicorp Vault is being used instead of the local file system, validator addresses should be added through the `--ibft-validator` flag:
 
