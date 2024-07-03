@@ -1,6 +1,9 @@
 # Table of contents
 
 * [Overview](README.md)
+* [Tokenomics](tokenomics/README.md)
+  * [Glossary](tokenomics/glossary.md)
+  * [Tokenomics](tokenomics/tokenomics.md)
 * [Get started](get-started/README.md)
   * [Installation](get-started/installation.md)
   * [Local Setup](get-started/set-up-ibft-locally.md)
@@ -43,3 +46,4 @@
   * [Backup/restore node instance](working-with-node/backup-restore.md)
   * [Query JSON RPC endpoints](working-with-node/query-json-rpc.md)
   * [Query operator information](working-with-node/query-operator-info.md)
+* [Development Roadmap](development-roadmap.md)

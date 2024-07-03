@@ -8,15 +8,15 @@ sidebar_label: Overview
 
 We started with the idea of making software that is _modular_.
 
-This is something that is present in almost all parts of the Zchains. Below, you will find a brief overview of the built architecture and its layering.
+This is something that is present in almost all parts of the ZChains. Below, you will find a brief overview of the built architecture and its layering.
 
-### Zchains Layering
+### ZChains Layering
 
 ![Polygon Edge Architecture](../img/Architecture.jpg)
 
 ### Libp2p
 
-It all starts at the base networking layer, which utilizes **libp2p**. We decided to go with this technology because it fits into the designing philosophies of Zchains. Libp2p is:
+It all starts at the base networking layer, which utilizes **libp2p**. We decided to go with this technology because it fits into the designing philosophies of ZChains. Libp2p is:
 
 * Modular
 * Extensible
@@ -28,7 +28,7 @@ Most importantly, it provides a great foundation for more advanced features, whi
 
 The separation of the synchronization and consensus protocols allows for modularity and implementation of **custom** sync and consensus mechanisms - depending on how the client is being run.
 
-Zchains is designed to offer off-the-shelf pluggable consensus algorithms.
+ZChains is designed to offer off-the-shelf pluggable consensus algorithms.
 
 The current list of supported consensus algorithms:
 
@@ -36,7 +36,7 @@ The current list of supported consensus algorithms:
 
 ### Blockchain
 
-The Blockchain layer is the central layer that coordinates everything in the Zchains system. It is covered in depth in the corresponding _Modules_ section.
+The Blockchain layer is the central layer that coordinates everything in the ZChains system. It is covered in depth in the corresponding _Modules_ section.
 
 ### State
 

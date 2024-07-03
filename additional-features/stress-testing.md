@@ -9,12 +9,12 @@ title: Network stress testing
 
 This guide assumes that:
 
-* You have a working Zchains network up and running
+* You have a working ZChains network up and running
 * Both your JSON-RPC and GRPC endpoints are reachable
 
 ### Overview
 
-The Zchains Loadbot is a helper utility that is meant to stress test a Zchains network.
+The ZChains Loadbot is a helper utility that is meant to stress test a ZChains network.
 
 Currently, it supports 2 modes:
 

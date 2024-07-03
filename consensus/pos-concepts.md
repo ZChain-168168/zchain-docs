@@ -7,9 +7,9 @@ title: Proof of Stake
 
 ### Overview
 
-This section aims to give a better overview of some concepts currently present in the Proof of Stake (PoS) implementation of the Zchains.
+This section aims to give a better overview of some concepts currently present in the Proof of Stake (PoS) implementation of the ZChains.
 
-The Zchains Proof of Stake (PoS) implementation is meant to be an alternative to the existing PoA IBFT implementation, giving node operators the ability to easily choose between the two when starting a chain.
+The ZChains Proof of Stake (PoS) implementation is meant to be an alternative to the existing PoA IBFT implementation, giving node operators the ability to easily choose between the two when starting a chain.
 
 ### PoS Features
 

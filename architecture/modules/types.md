@@ -16,14 +16,15 @@ The **Types** module implements core object types, such as:
 
 ### RLP Encoding / Decoding
 
-Unlike clients such as GETH, the Zchains doesn't use reflection for the encoding.\
+Unlike clients such as GETH, the ZChains doesn't use reflection for the encoding.\
+\
 The preference was to not use reflection because it introduces new problems, such as performance degradation, and harder scaling.
 
 The **Types** module provides an easy-to-use interface for RLP marshaling and unmarshalling, using the FastRLP package.
 
 Marshaling is done through the _MarshalRLPWith_ and _MarshalRLPTo_ methods. The analogous methods exist for unmarshalling.
 
-By manually defining these methods, the Zchains doesn't need to use reflection. In _rlp\_marshal.go_, you can find methods for marshaling:
+By manually defining these methods, the ZChains doesn't need to use reflection. In _rlp\_marshal.go_, you can find methods for marshaling:
 
 * **Bodies**
 * **Blocks**

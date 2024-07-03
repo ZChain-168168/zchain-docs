@@ -7,7 +7,7 @@ title: Blockchain
 
 ### Overview
 
-One of the main modules of the Zchains are **Blockchain** and **State**.\
+One of the main modules of the ZChains are **Blockchain** and **State**.\
 
 
 **Blockchain** is the powerhouse that deals with block reorganizations. This means that it deals with all the logic that happens when a new block is included in the blockchain.

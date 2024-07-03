@@ -9,7 +9,7 @@ Starting the server with various configuration options can be done using a confi
 
 ## Export config file with default configuration
 
-The configuration with default settings for theZchains server can be exported into a config file in either `yaml` or `json` file format. This file can be used as a template for running the server using a configuration file.
+The configuration with default settings for the ZChains server can be exported into a config file in either `yaml` or `json` file format. This file can be used as a template for running the server using a configuration file.
 
 ### YAML
 

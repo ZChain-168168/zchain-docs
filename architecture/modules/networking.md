@@ -8,7 +8,7 @@ title: Networking
 ### Overview
 
 A node has to communicate with other nodes on the network, in order to exchange useful information.\
-To accomplish this task, the Zchains leverages the battle-tested **libp2p** framework.
+To accomplish this task, the ZChains leverages the battle-tested **libp2p** framework.
 
 The choice to go with **libp2p** is primarily focused on:
 
@@ -62,7 +62,7 @@ These methods are implemented in _**minimal/system\_service.go**_. :::
 
 #### GRPC for Other Nodes
 
-The Zchains also implements several service methods that are used by other nodes on the network.\
+The ZChains also implements several service methods that are used by other nodes on the network.\
 The mentioned service is described in the [**Protocol**](../../docs/architecture/modules/protocol/) section.
 
 ### 📜 Resources

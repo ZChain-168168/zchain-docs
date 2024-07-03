@@ -7,11 +7,11 @@ title: Minimal
 
 ### Overview
 
-As mentioned before, Zchains is a set of different modules, all connected to each other.\
+As mentioned before, ZChains is a set of different modules, all connected to each other.\
+\
 The **Blockchain** is connected to the **State**, or for example, **Synchronization**, which pipes new blocks into the **Blockchain**.
 
-**Minimal** is the cornerstone for these inter-connected modules.\
-It acts as a central hub for all the services that run on the Zchains.
+**Minimal** is the cornerstone for these inter-connected modules. It acts as a central hub for all the services that run on the ZChains.
 
 ### Startup Magic
 

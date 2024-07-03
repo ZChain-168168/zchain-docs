@@ -8,7 +8,8 @@ title: Propose a new feature
 ### Overview
 
 If you want to include a fix, or just contribute to the code, it is highly encouraged for you to reach out to the team first.\
-The Zchains uses a relatively basic feature proposition template, that is concise and to the point.
+\
+The ZChains uses a relatively basic feature proposition template, that is concise and to the point.
 
 ### PR Template
 

@@ -7,14 +7,14 @@ title: Manage private keys
 
 ### Overview
 
-The Zchains has two types of private keys that it directly manages:
+The ZChains has two types of private keys that it directly manages:
 
 * **Private key used for the consensus mechanism**
 * **Private key used for networking by libp2p**
 
-Currently, the Zchains doesn't offer support for direct account management.
+Currently, the ZChains doesn't offer support for direct account management.
 
-Based on the directory structure outlined in the [Backup & Restore guide](../working-with-node/backup-restore.md), the Zchains stores these mentioned key files in two distinct directories - **consensus** and **keystore**.
+Based on the directory structure outlined in the [Backup & Restore guide](../working-with-node/backup-restore.md), the ZChains stores these mentioned key files in two distinct directories - **consensus** and **keystore**.
 
 ### Key format
 
@@ -25,7 +25,7 @@ The private keys are stored in simple **Base64 format**, so they can be human-re
 0802122068a1bdb1c8af5333e58fe586bc0e9fc7aff882da82affb678aef5d9a2b9100c0
 ```
 
-:::info Key Type All private key files generated and used inside the Zchains are relying on ECDSA with the curve [secp256k1](https://en.bitcoin.it/wiki/Secp256k1).
+:::info Key Type All private key files generated and used inside the ZChains are relying on ECDSA with the curve [secp256k1](https://en.bitcoin.it/wiki/Secp256k1).
 
 As the curve is non-standard, it cannot be encoded and stored in any standardized PEM format. Importing keys that don't conform to this key type is not supported. :::
 

@@ -7,15 +7,15 @@ title: Local Setup
 
 :::caution This guide is for testing purposes only
 
-The below guide will instruct you on how to set up a Zchains network on your local machine for testing and development purposes.
+The below guide will instruct you on how to set up a ZChains network on your local machine for testing and development purposes.
 
-The procedure differs greatly from the way you would want to set up Zchains network for a real use scenario on a cloud provider: [Cloud Setup](set-up-ibft-on-the-cloud.md)
+The procedure differs greatly from the way you would want to set up ZChains network for a real use scenario on a cloud provider: [Cloud Setup](set-up-ibft-on-the-cloud.md)
 
 :::
 
 ### Requirements
 
-Refer to [Installation](installation.md) to install Zchains.
+Refer to [Installation](installation.md) to install ZChains.
 
 ### Overview
 

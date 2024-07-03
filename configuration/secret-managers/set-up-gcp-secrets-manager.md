@@ -7,20 +7,20 @@ title: Set up GCP Secrets Manager
 
 ### Overview
 
-Currently, theZchains is concerned with keeping 2 major runtime secrets:
+Currently, the ZChains is concerned with keeping 2 major runtime secrets:
 
 * The **validator private key** used by the node, if the node is a validator
 * The **networking private key** used by libp2p, for participating and communicating with other peers
 
 For additional information, please read through the [Managing Private Keys Guide](../../docs/configuration/manage-private-keys/)
 
-The modules of the Zchains **should not need to know how to keep secrets**. Ultimately, a module should not care if a secret is stored on a far-away server or locally on the node's disk.
+The modules of the ZChains **should not need to know how to keep secrets**. Ultimately, a module should not care if a secret is stored on a far-away server or locally on the node's disk.
 
 Everything a module needs to know about secret-keeping is **knowing to use the secret**, **knowing which secrets to get or save**. The finer implementation details of these operations are delegated away to the `SecretsManager`, which of course is an abstraction.
 
-The node operator that's starting the Zchains can now specify which secrets manager they want to use, and as soon as the correct secrets manager is instantiated, the modules deal with the secrets through the mentioned interface - without caring if the secrets are stored on a disk or on a server.
+The node operator that's starting the ZChains can now specify which secrets manager they want to use, and as soon as the correct secrets manager is instantiated, the modules deal with the secrets through the mentioned interface - without caring if the secrets are stored on a disk or on a server.
 
-This article details the necessary steps to get the Zchains up and running with [GCP Secret Manager](https://cloud.google.com/secret-manager).
+This article details the necessary steps to get the ZChains up and running with [GCP Secret Manager](https://cloud.google.com/secret-manager).
 
 :::info previous guides It is **highly recommended** that before going through this article, articles on [**Local Setup**](../../docs/get-started/set-up-ibft-locally/) and [**Cloud Setup**](../../docs/get-started/set-up-ibft-on-the-cloud/) are read. :::
 
@@ -46,7 +46,7 @@ Required information before continuing:
 
 ### Step 1 - Generate the secrets manager configuration
 
-In order for the Zchains to be able to seamlessly communicate with the GCP SM, it needs to parse an already generated config file, which contains all the necessary information for secret storage on GCP SM.
+In order for the ZChains to be able to seamlessly communicate with the GCP SM, it needs to parse an already generated config file, which contains all the necessary information for secret storage on GCP SM.
 
 To generate the configuration, run the following command:
 
@@ -63,7 +63,7 @@ Parameters present:
 
 :::caution Node names Be careful when specifying node names.
 
-The Zchains uses the specified node name to keep track of the secrets it generates and uses on the GCP SM. Specifying an existing node name can have consequences of failing to write secret to GCP SM.
+The ZChains uses the specified node name to keep track of the secrets it generates and uses on the GCP SM. Specifying an existing node name can have consequences of failing to write secret to GCP SM.
 
 Secrets are stored on the following base path: `projects/PROJECT_ID/NODE_NAME` :::
 

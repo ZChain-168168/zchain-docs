@@ -7,9 +7,9 @@ title: Set up and use Proof of Stake (PoS)
 
 ### Overview
 
-This guide goes into detail on how to set up a Proof of Stake network with the Zchains, how to stake funds for nodes to become validators and how to unstake funds.
+This guide goes into detail on how to set up a Proof of Stake network with the ZChains, how to stake funds for nodes to become validators and how to unstake funds.
 
-It **highly encouraged** to read and go through the [Local Setup](../docs/get-started/set-up-ibft-locally/) / [Cloud Setup](../docs/get-started/set-up-ibft-on-the-cloud/) sections, before going along with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the Zchains.
+It is **highly encouraged** to read and go through the [Local Setup](../docs/get-started/set-up-ibft-locally/) / [Cloud Setup](../docs/get-started/set-up-ibft-on-the-cloud/) sections, before going along with this PoS guide. These sections outline the steps needed to start a Proof of Stake (PoS) cluster with the ZChains.
 
 Currently, there is no limit to the number of validators that can stake funds on the Staking Smart Contract.
 
@@ -21,7 +21,7 @@ It holds the necessary testing scripts, ABI files and most importantly the Staki
 
 ### Setting up an N node cluster
 
-Setting up a network with the Zchains is covered in the [Local Setup](../docs/get-started/set-up-ibft-locally/) / [Cloud Setup](../docs/get-started/set-up-ibft-on-the-cloud/) sections.
+Setting up a network with the ZChains is covered in the [Local Setup](../docs/get-started/set-up-ibft-locally/) / [Cloud Setup](../docs/get-started/set-up-ibft-on-the-cloud/) sections.
 
 The **only difference** between setting up a PoS and PoA cluster is in the genesis generation part.
 

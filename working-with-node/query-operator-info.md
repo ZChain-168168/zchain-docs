@@ -11,7 +11,8 @@ This guide assumes you have followed the [Local Setup](../get-started/set-up-ibf
 
 A functioning node is required in order to query any kind of operator information.
 
-With the Zchains, node operators are in control and informed about what the node they're operating is doing.\
+With the ZChains, node operators are in control and informed about what the node they're operating is doing.\
+\
 At any time, they can use the node information layer, built on top of gRPC, and get meaningful information - no log sifting required.
 
 :::note

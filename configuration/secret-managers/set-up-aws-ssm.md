@@ -7,20 +7,20 @@ title: Set up AWS SSM (Systems Manager)
 
 ### Overview
 
-Currently, the Zchains is concerned with keeping 2 major runtime secrets:
+Currently, the ZChains is concerned with keeping 2 major runtime secrets:
 
 * The **validator private key** used by the node, if the node is a validator
 * The **networking private key** used by libp2p, for participating and communicating with other peers
 
 For additional information, please read through the [Managing Private Keys Guide](../../docs/configuration/manage-private-keys/)
 
-The modules of the Zchains **should not need to know how to keep secrets**. Ultimately, a module should not care if a secret is stored on a far-away server or locally on the node's disk.
+The modules of the ZChains **should not need to know how to keep secrets**. Ultimately, a module should not care if a secret is stored on a far-away server or locally on the node's disk.
 
 Everything a module needs to know about secret-keeping is **knowing to use the secret**, **knowing which secrets to get or save**. The finer implementation details of these operations are delegated away to the `SecretsManager`, which of course is an abstraction.
 
-The node operator that's starting the Zchains can now specify which secrets manager they want to use, and as soon as the correct secrets manager is instantiated, the modules deal with the secrets through the mentioned interface - without caring if the secrets are stored on a disk or on a server.
+The node operator that's starting the ZChains can now specify which secrets manager they want to use, and as soon as the correct secrets manager is instantiated, the modules deal with the secrets through the mentioned interface - without caring if the secrets are stored on a disk or on a server.
 
-This article details the necessary steps to get the Zchains up and running with [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html).
+This article details the necessary steps to get the ZChains up and running with [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html).
 
 :::info previous guides It is **highly recommended** that before going through this article, articles on [**Local Setup**](../../docs/get-started/set-up-ibft-locally/) and [**Cloud Setup**](../../docs/get-started/set-up-ibft-on-the-cloud/) are read. :::
 
@@ -28,7 +28,7 @@ This article details the necessary steps to get the Zchains up and running with 
 
 #### IAM Policy
 
-User needs to create an IAM Policy that allows read/write operations for AWS Systems Manager Parameter Store. After successfully creating IAM Policy, the user needs to attach it to the EC2 instance that is running the Zchains server. The IAM Policy should look something like this:
+User needs to create an IAM Policy that allows read/write operations for AWS Systems Manager Parameter Store. After successfully creating IAM Policy, the user needs to attach it to the EC2 instance that is running the ZChains server. The IAM Policy should look something like this:
 
 ```json
 {
@@ -58,7 +58,7 @@ Required information before continuing:
 
 ### Step 1 - Generate the secrets manager configuration
 
-In order for the Zchains to be able to seamlessly communicate with the AWS SSM, it needs to parse an already generated config file, which contains all the necessary information for secret storage on AWS SSM.
+In order for the ZChains to be able to seamlessly communicate with the AWS SSM, it needs to parse an already generated config file, which contains all the necessary information for secret storage on AWS SSM.
 
 To generate the configuration, run the following command:
 

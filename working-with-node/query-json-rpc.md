@@ -7,7 +7,7 @@ title: Query JSON RPC endpoints
 
 ### Overview
 
-The JSON-RPC layer of the Zchains provides developers with the functionality of easily interacting with the blockchain, through HTTP requests.
+The JSON-RPC layer of the ZChains provides developers with the functionality of easily interacting with the blockchain, through HTTP requests.
 
 This example covers using tools like **curl** to query information, as well as starting the chain with a premined account, and sending a transaction.
 
@@ -32,9 +32,9 @@ The balance can be either a `hex` or `uint256` value.
 
 :::warning Only premine accounts for which you have a private key! If you premine accounts and do not have a private key to access them, you premined balance will not be usable :::
 
-### Step 2: Start the Zchains in dev mode
+### Step 2: Start the ZChains in dev mode
 
-To start the Zchains in development mode, which is explained in the [CLI Commands](../docs/get-started/cli-commands/) section, run the following:
+To start the ZChains in development mode, which is explained in the [CLI Commands](../docs/get-started/cli-commands/) section, run the following:
 
 ```bash
 polygon-edge server --chain genesis.json --dev --log-level debug

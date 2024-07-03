@@ -7,13 +7,13 @@ title: Cloud Setup
 
 :::info This guide is for mainnet or testnet setups
 
-The below guide will instruct you on how to set up a Zchains network on a cloud provider for a production setup of your testnet or mainnet.
+The below guide will instruct you on how to set up a ZChains network on a cloud provider for a production setup of your testnet or mainnet.
 
-If you would like to setup a Zchains network locally to quickly test the `polygon-edge` before doing a production-like setup, please refer to [Local Setup](../docs/get-started/set-up-ibft-locally/) :::
+If you would like to setup a ZChains network locally to quickly test the `polygon-edge` before doing a production-like setup, please refer to [Local Setup](../docs/get-started/set-up-ibft-locally/) :::
 
 ### Requirements
 
-Refer to [Installation](../docs/get-started/installation/) to install Zchains.
+Refer to [Installation](../docs/get-started/installation/) to install ZChains.
 
 #### Setting up the VM connectivity
 
@@ -25,7 +25,7 @@ As the only part of the `polygon-edge` that needs to be exposed to other VMs is 
 
 ![Cloud setup](../img/ibft-setup/cloud.svg)
 
-In this guide, our goal is to establish a working `polygon-edge` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650). The blockchain network will consist of 4 nodes of whom all 4 are validator nodes, and as such are eligible for both proposing block, and validating blocks that came from other proposers. Each of the 4 nodes will run on their own VM, as the idea of this guide is to give you a fully functional Zchains network while keeping the validator keys private to ensure a trustless network setup.
+In this guide, our goal is to establish a working `polygon-edge` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650). The blockchain network will consist of 4 nodes of whom all 4 are validator nodes, and as such are eligible for both proposing block, and validating blocks that came from other proposers. Each of the 4 nodes will run on their own VM, as the idea of this guide is to give you a fully functional ZChains network while keeping the validator keys private to ensure a trustless network setup.
 
 To achieve that, we will guide you through 4 easy steps:
 
@@ -45,7 +45,7 @@ The minimum recommended number of nodes for achieving a BFT guarantee is 4 - sin
 
 ### Step 1: Initialize data folders and generate validator keys
 
-To get up and running with Zchains, you need to initialize the data folders, on each node:
+To get up and running with ZChains, you need to initialize the data folders, on each node:
 
 ```bash
 node-1> polygon-edge secrets init --data-dir data-dir

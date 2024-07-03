@@ -14,6 +14,7 @@ Currently, the following consensus engines are available:
 * **IBFT PoS**
 
 The Zchains wants to maintain a state of modularity and pluggability.\
+\
 This is why the core consensus logic has been abstracted away, so new consensus mechanisms can be built on top, without compromising on usability and ease of use.
 
 ### Consensus Interface

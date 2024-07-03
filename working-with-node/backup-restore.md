@@ -7,18 +7,18 @@ title: Backup/restore node instance
 
 ### Overview
 
-This guide goes into detail on how to back up and restore a Zchains node instance. It covers the base folders and what they contain, as well as which files are critical for performing a successful backup and restore.
+This guide goes into detail on how to back up and restore a ZChains node instance. It covers the base folders and what they contain, as well as which files are critical for performing a successful backup and restore.
 
 ### Base folders
 
-Zchains leverages LevelDB as its storage engine. When starting a Zchains node, the following sub-folders are created in the specified working directory:
+ZChains leverages LevelDB as its storage engine. When starting a ZChains node, the following sub-folders are created in the specified working directory:
 
 * **blockchain** - Stores the blockchain data
 * **trie** - Stores the Merkle tries (world state data)
 * **keystore** - Stores private keys for the client. This includes the libp2p private key and the sealing/validator private key
 * **consensus** - Stores any consensus information that the client might need while working. For now, it stores the node's _private validator key_
 
-It is critical for these folders to be preserved in order for the Zchains instance to run smoothly.
+It is critical for these folders to be preserved in order for the ZChains instance to run smoothly.
 
 ### Create backup from a running node and restore for new node
 
@@ -46,9 +46,9 @@ This section guides you through backup the data including state data and key and
 
 #### Step 1: Stop the running client
 
-Since the Zchains uses **LevelDB** for data storage, the node needs to be stopped for the duration of the backup, as **LevelDB** doesn't allow for concurrent access to its database files.
+Since the ZChains uses **LevelDB** for data storage, the node needs to be stopped for the duration of the backup, as **LevelDB** doesn't allow for concurrent access to its database files.
 
-Additionally, the Zchains also does data flushing on close.
+Additionally, the ZChains also does data flushing on close.
 
 The first step involves stopping the running client (either through a service manager or some other mechanism that sends a SIGINT signal to the process), so it can trigger 2 events while gracefully shutting down:
 
@@ -65,12 +65,12 @@ Now that the client is not running, the data directory can be backed up to anoth
 
 #### Step 1: Stop the running client
 
-If any instance of the Zchains is running, it needs to be stopped in order for step 2 to be successful.
+If any instance of the ZChains is running, it needs to be stopped in order for step 2 to be successful.
 
 #### Step 2: Copy the backed up data directory to the desired folder
 
 Once the client is not running, the data directory which was previously backed up can be copied over to the desired folder. Additionally, restore the previously copied `genesis` file.
 
-#### Step 3: Run the Zchains client while specifying the correct data directory
+#### Step 3: Run the ZChains client while specifying the correct data directory
 
 In order for the Polygon Edge to use the restored data directory, at launch, the user needs to specify the path to the data directory. Please consult the [CLI Commands](../get-started/cli-command.md) section on information regarding the `data-dir` flag.
