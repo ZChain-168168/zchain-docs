@@ -35,3 +35,12 @@ Prior to using `go install` make sure that you have Go `>=1.17` installed and pr
 `go install github.com/`ZChain-168168/ZChain-Blockchain/`polygon-edge@develop`
 
 The binary will be available in your `GOBIN` environment variable, and will include the latest changes from the mainline `develop` branch.
+
+
+
+***
+
+## Genesis files
+
+Test-net and Main-net file in: [https://github.com/ZChain-168168/ZChain-Blockchain](https://github.com/ZChain-168168/ZChain-Blockchain)
+
