@@ -20,7 +20,7 @@ The stable branch is `develop`.
 Copy
 
 ```
-git clone https://github.com/0xEVMBuilder/polygon-edge.git
+git clone https://github.com/ZChain-168168/ZChain-Blockchain/polygon-edge.git
 cd polygon-edge/
 go build main.go -o polygon-edge
 sudo mv polygon-edge /usr/local/bin
@@ -32,6 +32,6 @@ sudo mv polygon-edge /usr/local/bin
 
 Prior to using `go install` make sure that you have Go `>=1.17` installed and properly configured.
 
-`go install github.com/0xEVMBuilder/polygon-edge@develop`
+`go install github.com/`ZChain-168168/ZChain-Blockchain/`polygon-edge@develop`
 
 The binary will be available in your `GOBIN` environment variable, and will include the latest changes from the mainline `develop` branch.
